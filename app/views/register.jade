@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  h2 Register
+
+  form(action="/register",method="post")
+    div
+      label Username
+      input(type="text",name="username")
+      
+    div
+      label First Name
+      input(type="text",name="firstName")
+
+    div
+      label Last Name
+      input(type="text",name="lastName")
+      
+    div
+        label Birthdate
+        input(type="date", name="dob")
+
+    div
+      label Password
+      input(type="password",name="password")
+
+    div
+      input(type="submit",value="Register")
