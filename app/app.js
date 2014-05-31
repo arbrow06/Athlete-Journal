@@ -4,7 +4,7 @@ var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var mongooed = require('mongoose');
+var mongoose = require('mongoose');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -25,10 +25,18 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-if (loggedIn)
+//If admin
 app.use('/', routes);
-app.use('/users', users);
+app.use('/users', users); //view users
+//If Not Logged In
+app.get('/login', users); //display login page
+app.get('/signup', register); //display sign up page
+app.get('/resources', resources); //show dynamic     resources page
+app.post('/login', users);
+
+/*When Logged In
+    all these gets and posts for db manipulation and presentation.
+*/
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
