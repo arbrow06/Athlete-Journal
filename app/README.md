@@ -1,18 +1,11 @@
+# Athlete Journal
 
-    ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
-    '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
-    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
-    '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
-     `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
-    ----------------------------------------------------------------- 
+## Mission
 
+Track athlete have it hard with rigorous training mulitiple times a week and often rely on others to retrieve their meet information for them. 
 
-Hi there! Welcome to Cloud9 IDE!
+This simple web app allows these atheletes to be more accountable for their performance. This app is in it very beginning stages and aims to be a dashboard of data and analytics of whats important to athletes.
 
-To get you started, create some files, play with the terminal,
-or visit http://docs.c9.io for our documentation.
-If you want, you can also go watch some training videos at
-http://www.youtube.com/user/c9ide.
+## Under the hood
 
-Happy coding!
-The Cloud9 IDE team
+This app will be done entirely with Bootstrap, Express and Jade Templating Engine.
