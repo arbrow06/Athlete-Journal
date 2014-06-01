@@ -2,3 +2,6 @@ extends layout
 
 block content
     h1 Athlete Dashboard
+    form(action="/addEventStats/:name", method="post")
+        button(type="submit", name="addTrackEvent") Add Track Event
+        button(type="submit", name="addFieldEvent") Add Field Event
