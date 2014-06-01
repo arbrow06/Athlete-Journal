@@ -53,5 +53,18 @@ module.exports = function (app) {
             function(req, res) {
                 res.render('dashboard', { user: req.user })
             });
+    app.post('/dashboard',
+            function(req, res, next) {
+                if (req.param('name') == "addTrackEvent") {
+                    model = trackEventSchema;
+                    next();
+                }
+                else {
+                    model = fieldEventSchema;
+                    next();
+                },
+                function (req, res) {
+                    res.render('addEvent', {model: model});
+                    
 };
 
