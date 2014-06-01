@@ -3,7 +3,7 @@
 
 module.exports = function (app) {
     app.get('/', function (req, res) {
-        res.render('index', { user : req.user });
+        res.render('index', { user : req.user, title : "Home" });
     });
 
     app.get('/register', function(req, res) {
@@ -11,11 +11,16 @@ module.exports = function (app) {
     });
 
     app.post('/register', function(req, res) {
-        Athlete.register(new Athlete({ username : req.body.username }), req.body.password, function(err, account) {
+            Athlete.register(new Athlete({
+            username: req.param('username'),
+            firstName: req.param('firstName'),
+            lastName: req.param('lastName'),
+            dob: req.param('dob')
+        }), req.param('password'), function(err, athlete) {
             if (err) {
-                return res.render('register', { account : account });
-            }
-
+                console.log(err);
+                return res.render('register');
+            }    
             res.redirect('/');
         });
     });
@@ -29,16 +34,17 @@ module.exports = function (app) {
     });
 
     app.get('/logout', function(req, res) {
-        req.logout();
-        res.redirect('/');
+        req.session.destroy(function (err) {
+            res.redirect('/');
+        });
     });
     app.get('/resources', function(req, res) {
-        res.render('index', { title: 'Resources Page' });
-    });
+        res.render('resources', { title: 'Resources Page' });
+    }); //show dynamic     resources page
 };
 
-/
-app.use('/resources', resources); //show dynamic     resources page
+
+    
 
 
 /*When Logged In

@@ -4,12 +4,9 @@ var mongoose = require('mongoose'),
 
 var athleteSchema = mongoose.Schema({
     username: String,
-    password: 
     firstName: String,
     lastName: String,
-    age: Number,
-    usatfGroup: String,
-    aauGroup: String
+    dob: Date
 });
 
 athleteSchema.plugin(passportLocalMongoose);
