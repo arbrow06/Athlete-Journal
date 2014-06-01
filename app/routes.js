@@ -40,13 +40,18 @@ module.exports = function (app) {
     });
     app.get('/resources', function(req, res) {
         res.render('resources', { title: 'Resources Page' });
-    }); //show dynamic     resources page
+    }); 
+    app.get('/dashboard',
+            function (req, res, next) {
+                if (req.user != undefined) {
+                next();
+            } 
+                else {
+                res.redirect('/login');
+                }
+            },
+            function(req, res) {
+                res.render('dashboard', { user: req.user })
+            });
 };
 
-
-    
-
-
-/*When Logged In
-    all these gets and posts for db manipulation and presentation.
-*/
